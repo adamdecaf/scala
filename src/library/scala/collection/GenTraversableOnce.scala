@@ -450,6 +450,21 @@ trait GenTraversableOnce[+A] extends Any {
    */
   def mkString: String
 
+  /**
+   * Appends all elements of the $coll by the method `f` to produce a string.
+   *
+   * Example:
+   *
+   * {{{
+   *      scala> List(1,2,3).mkStringWith("a" + _.mkString + "b")
+   *      res0: String = a123b
+   * }}}
+   *
+   * @param f The function to run over each element and produce a string.
+   * @return  The resulting stirng.
+   */
+  def mkStringWith(f: A => String): String
+
   /** Converts this $coll to an array.
    *
    *  @tparam A1 the type of the elements of the array. An `ClassTag` for

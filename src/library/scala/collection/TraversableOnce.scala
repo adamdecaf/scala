@@ -287,6 +287,16 @@ trait TraversableOnce[+A] extends Any with GenTraversableOnce[A] {
 
   def mkString: String = mkString("")
 
+  def mkStringWith(f: A => String): String = {
+    val builder = new StringBuilder()
+
+    for (s <- self) {
+      builder.append(f(s))
+    }
+
+    builder.toString
+  }
+
   /** Appends all elements of this $coll to a string builder using start, end, and separator strings.
    *  The written text begins with the string `start` and ends with the string `end`.
    *  Inside, the string representations (w.r.t. the method `toString`)

@@ -75,6 +75,7 @@ trait Traversable[+A] extends TraversableLike[A, Traversable[A]]
   override def mkString(start: String, sep: String, end: String): String
   override def mkString(sep: String): String
   override def mkString: String
+  override def mkStringWith(f: A => String): String
   override def addString(b: StringBuilder, start: String, sep: String, end: String): StringBuilder
   override def addString(b: StringBuilder, sep: String): StringBuilder
   override def addString(b: StringBuilder): StringBuilder

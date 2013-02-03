@@ -351,6 +351,8 @@ self: ParIterableLike[T, Repr, Sequential] =>
 
   def mkString: String = seq.mkString("")
 
+  def mkStringWith(f: T => String): String = seq.mkStringWith(f)
+
   override def toString = seq.mkString(stringPrefix + "(", ", ", ")")
 
   def canEqual(other: Any) = true
